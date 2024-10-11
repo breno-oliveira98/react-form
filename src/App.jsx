@@ -1,4 +1,5 @@
 import "./App.css";
+import { Input } from "./components/input/Input";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <main className="form-pessoa">
         <h2>Cadstro de Pessoa</h2>
         <form class="row g-3">
+
         <div className="col-md-6">
             <label htmlFor="nome" className="form-label">
               Nome Completo
@@ -20,14 +22,21 @@ function App() {
             <input type="text" className="form-control" id="nome-mae" />
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-2">
+            <label htmlFor="data-nascimento" className="form-label">
+              Data de Nascimento
+            </label>
+            <input type="date" className="form-control text-center" id="data-nascimento" />
+          </div>
+
+          <div className="col-md-5">
             <label htmlFor="email" className="form-label">
               Email
             </label>
             <input type="email" className="form-control" id="email" />
           </div>
 
-          <div className="col-md-6">
+          <div className="col-md-5">
             <label htmlFor="senha" className="form-label">
               Senha
             </label>
@@ -88,6 +97,9 @@ function App() {
               <option>...</option>
             </select>
           </div>
+
+
+
         </form>
       </main>
     </>

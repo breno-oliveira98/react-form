@@ -1,106 +1,107 @@
+import { useRef, useState } from "react";
 import "./App.css";
+import { Button } from "./components/button/Button";
 import { Input } from "./components/input/Input";
+import { InputSelect } from "./components/input/InputSelect";
 
 function App() {
+  const [formData, setFormData] = useState({})
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.id]: e.target.value })
+  }
+  const [nomeCompleto, setNomeCompleto] = useState('');
+  const enviar = (e) => {
+    e.preventDefault();
+    console.log('Form', formData)
+  }
   return (
     <>
-      <main className="form-pessoa">
+      <main className="form-pessoa ">
         <h2>Cadstro de Pessoa</h2>
-        <form class="row g-3">
-
-        <div className="col-md-6">
-            <label htmlFor="nome" className="form-label">
-              Nome Completo
-            </label>
-            <input type="text" className="form-control" id="nome" />
-          </div>
-
-          <div className="col-md-6">
-            <label htmlFor="nome-mae" className="form-label">
-              Nome Mãe
-            </label>
-            <input type="text" className="form-control" id="nome-mae" />
-          </div>
-
-          <div className="col-md-2">
-            <label htmlFor="data-nascimento" className="form-label">
-              Data de Nascimento
-            </label>
-            <input type="date" className="form-control text-center" id="data-nascimento" />
-          </div>
-
-          <div className="col-md-5">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input type="email" className="form-control" id="email" />
-          </div>
-
-          <div className="col-md-5">
-            <label htmlFor="senha" className="form-label">
-              Senha
-            </label>
-            <input type="password" className="form-control" id="senha" />
-          </div>
-
-          <div className="col-3">
-            <label htmlFor="cep" className="form-label">
-              CEP
-            </label>
-            <input type="text" className="form-control" id="cep" />
-          </div>
-
-          <div className="col-9">
-            <label htmlFor="endereco" className="form-label">
-              Endereço
-            </label>
-            <input type="text" className="form-control" id="endereco" />
-          </div>
-
-          <div className="col-1">
-            <label htmlFor="numero" className="form-label">
-              Número
-            </label>
-            <input type="text" className="form-control" id="numero" />
-          </div>
-
-          <div className="col-11">
-            <label htmlFor="complemento" className="form-label">
-              Complemento
-            </label>
-            <input type="text" className="form-control" id="complemento" />
-          </div>
-
-          <div className="col-4">
-            <label htmlFor="bairro" className="form-label">
-              Bairro
-            </label>
-            <input type="text" className="form-control" id="bairro" />
-          </div>
-
-          <div className="col-4">
-            <label htmlFor="estado" className="form-label">
-              Estado
-            </label>
-            <select id="estado" class="form-select">
-              <option selected>Escolha...</option>
-              <option>...</option>
-            </select>
-          </div>
-
-          <div className="col-4">
-            <label htmlFor="cidade" className="form-label">
-              Cidade
-            </label>
-            <select id="cidade" class="form-select">
-              <option selected>Escolha...</option>
-              <option>...</option>
-            </select>
-          </div>
-
-
-
+        <form className="row g-3" onSubmit={enviar}>
+        <Input
+         type="text"
+         id={'nome'}
+         label={'Nome Completo'}
+         handleChange={handleChange}
+         />
+        <Input
+         type="text"
+         id={'nome-mae'}
+         label={'Nome Mãe'}
+         />
+        <Input
+         type="date"
+         id={'data-nascimento'}
+         inputSize={'2'}
+         label={'Data de Nascimento'}
+         />
+        <Input
+         type="email"
+         id={'email'}
+         inputSize={'5'}
+         label={'Email'}
+         />
+        <Input
+         type="password"
+         id={'senha'}
+         inputSize={'5'}
+         label={'Senha'}
+         />
+        <Input
+         type="text"
+         id={'cep'}
+         inputSize={'3'}
+         label={'CEP'}
+         />
+        <Input
+         type="text"
+         id={'endereco'}
+         inputSize={'9'}
+         label={'Endereço'}
+         />
+        <Input
+         type="text"
+         id={'numero'}
+         inputSize={'1'}
+         label={'Número'}
+         />
+        <Input
+         type="text"
+         id={'complemento'}
+         inputSize={'11'}
+         label={'Complemento'}
+         />
+        <Input
+         type="text"
+         id={'bairro'}
+         inputSize={'4'}
+         label={'Bairro'}
+         />
+         <InputSelect
+         id={'estado'}
+         inputSize={'4'}
+         label={'Estado'}
+         />
+         <InputSelect
+         id={'cidade'}
+         inputSize={'4'}
+         label={'Cidade'}
+         />
+         <Button
+         name={'Cadastrar'}
+         color={'primary'}
+         type={'submit'}
+         />
+         <Button
+         name={'Limpar'}
+         color={'secondary'}
+         type={'reset'}
+         />
         </form>
+        <div>
+          {nomeCompleto}
+        </div>
       </main>
     </>
   );

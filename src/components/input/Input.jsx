@@ -4,7 +4,7 @@ export const Input = ({ type = 'text', id, inputSize = 6, label, handleChange, r
             <label htmlFor={id} className="form-label">
               {label}
             </label>
-            <input type={type} className="form-control" id={id} onChange={handleChange} ref={ref} />
+            <input type={type} autoComplete="off" className="form-control" id={id} onChange={handleChange} ref={ref} />
         </div>
      );
 }

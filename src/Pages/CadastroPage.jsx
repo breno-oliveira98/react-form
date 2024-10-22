@@ -3,6 +3,7 @@ import { Button } from "../components/button/Button";
 import { Input } from "../components/input/Input";
 import { InputSelect } from "../components/input/InputSelect";
 import { Link } from "react-router-dom";
+import { InputWithIcon } from "../components/input/InputWithIcon";
 
 export const CadastroPage = () => {
   const [formData, setFormData] = useState({});
@@ -22,10 +23,10 @@ export const CadastroPage = () => {
     console.log("Form", formData);
   };
   return (
-    <>
+    <div>
       <div className="form-pessoa d-flex justify-content-center align-items: center;" style={{height: '100vh'}}>
-        <form className="row g-3 my-auto" onSubmit={enviar} onReset={handleReset} style={{width: '800px', height: 'auto', background: 'white', padding: '20px', borderRadius: '10px'}}>
-        <h2 className="text-center">Cadstro de Pessoa</h2>
+        <form className="row g-3 my-auto" onSubmit={enviar} onReset={handleReset} style={{width: '700px', height: 'auto', background: 'white', padding: '20px', borderRadius: '10px'}}>
+        <h2 className="text-center">Cadastro de Pessoa</h2>
           <Input
             type="text"
             id={"nome"}
@@ -52,7 +53,7 @@ export const CadastroPage = () => {
             label={"Email"}
             handleChange={handleChange}
           />
-          <Input
+          <InputWithIcon
             type="password"
             id={"senha"}
             inputSize={"4"}
@@ -111,10 +112,10 @@ export const CadastroPage = () => {
           <div className="text-center"><span>Ja tem uma conta? <Link to="/login">Entre</Link></span></div>
           
         </form>
-        <div className="text-white">
+      </div>
+      <div className="d-flex justify-content-center">
           <pre>{resultado !== "{}" ? resultado : ""}</pre>
         </div>
-      </div>
-    </>
+    </div>
   );
 };

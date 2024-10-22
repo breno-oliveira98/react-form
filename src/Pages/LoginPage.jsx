@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "../components/button/Button";
 import { Input } from "../components/input/Input";
+import { InputWithIcon } from "../components/input/InputWithIcon";
 
 export const LoginPage = () => {
     return ( 
@@ -13,12 +14,12 @@ export const LoginPage = () => {
                 label={'Usuário'}
                 id={'usuario'}
                 />
-                <Input
-                inputSize={12}
-                type="password"
-                label={'Senha'}
+                <InputWithIcon
                 id={'senha'}
+                label={'Senha'}
+                inputSize={12}
                 />
+
                 <Button
                 name="Entrar"
                 color="primary"

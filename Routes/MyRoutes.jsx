@@ -8,7 +8,7 @@ export const MyRoutes = () => {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={ <LoginPage/> }/>
+                    <Route path="/" element={ <LoginPage/> }/>
                     <Route path="/cadastro" element={ <CadastroPage/> }/>
                     <Route path="/testecomp" element={ <TesteComp/> }/>
                 </Routes>
